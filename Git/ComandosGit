@@ -1,0 +1,19 @@
+Comandos Basicos do git
+
+para iniciar um repositorio controlado pelo git > git init
+
+para adicionar os arquivos ao repositório > git add -A 
+
+para "comitar" os arquivos > git commit -m "(mensagem melhores praticas em ingles)"
+
+para enviar os arquivos para o github > git push origin master (ou outra branch)
+
+para "apontar para um repositório remoto no github" > git add remote origin (url do repositório )
+
+para visualizar para qual repositorio está sendo apontado > git remote -v
+
+para criar uma branch > git checkout -b (nome da branch)
+#OBS branch é uma ramificação da master , espelhamento para desenvolver sem alterar algo na master 
+
+para deletar uma branch > git branch -D (nome da branch)
+
