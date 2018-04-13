@@ -8,6 +8,8 @@ para "comitar" os arquivos > git commit -m "(mensagem melhores praticas em ingle
 
 para enviar os arquivos para o github > git push origin master (ou outra branch)
 
+para enviar de qualquer forma ignorando erros e conflitos > git push -f origin (nome da branch) 
+
 para puxar "atualizar" os arquivos locais com os do repo > git pull origin
 
 para "apontar para um repositório remoto no github" > git add remote origin (url do repositório )
