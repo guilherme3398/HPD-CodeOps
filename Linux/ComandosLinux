@@ -1,0 +1,23 @@
+Comandos Linux 
+
+para entrar nas pastas > cd /
+
+para voltar ao diretorio anterior > cd -
+
+para descer um nivel de diretorio > cd ..
+
+listar conteudo das pastas > ls -lha
+
+copiar arquivos > cp
+
+remover arquivos > rm 
+
+para exibir conteudo dos arquivos > cat
+
+para reutilizar os comandos > !(começo do comando) ou ctrl + r
+
+para deletar o historico de comando > history -c
+
+
+
+
