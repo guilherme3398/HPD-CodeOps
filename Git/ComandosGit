@@ -25,4 +25,14 @@ para alterar a branch utilizada > git checkout (nome da branch)
 
 para saber qual branch esta sendo utilizada atualmente > git branch
 
-para realizar merge > git merge (nome da branch) 
+para realizar merge > git merge (nome da branch)
+
+para montar estrutura de branchs com git flow > git flow init 
+
+para criar uma feature > git flow feature start (nome da feature)
+o mesmo serve para criar release,hotfix...
+
+para finalizar uma feature > git flow feature finish (nome da feature)
+
+
+ 
