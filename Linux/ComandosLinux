@@ -1,4 +1,6 @@
-Comandos Linux 
+---------------------Comandos Linux---------------------  
+
+para criar um diretório > mkdir (criar diretorios)
 
 para entrar nas pastas > cd /
 
@@ -12,12 +14,20 @@ copiar arquivos > cp
 
 remover arquivos > rm 
 
-para exibir conteudo dos arquivos > cat
+para exibir conteudo dos arquivos > cat (caminho do arquivo)
 
 para reutilizar os comandos > !(começo do comando) ou ctrl + r
 
 para deletar o historico de comando > history -c
 
+para adicionar usuário no lnux > adduser (nome do usuário)
 
+
+
+
+
+---------------------Diretórios---------------------
+
+pasta dos dispositivos conectados > cd dev/
 
 
