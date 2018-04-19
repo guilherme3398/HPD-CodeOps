@@ -40,6 +40,11 @@ para finalizar uma feature > git flow feature finish (nome da feature)
 =======
 para realizar merge > git merge (nome da branch) 
 
+para criar uma tag > git tag -a v1.4 -m 'my version 1.4'
+(Criando uma tag anotada em Git é simples. O jeito mais fácil é especificar -a quando você executar o comando /
+O parâmetro -m define uma mensagem, que é armazenada com a tag. Se você não especificar uma mensagem para uma tag anotada, o Git vai rodar seu editor de texto para você digitar alguma coisa)
+
+
 ----------------------Git-Flow----------------------
 
 para iniciar git flow no diretorio > git flow init
