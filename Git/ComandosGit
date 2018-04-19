@@ -12,6 +12,8 @@ para enviar de qualquer forma ignorando erros e conflitos > git push -f origin (
 
 para puxar "atualizar" os arquivos locais com os do repo > git pull origin
 
+para puxar "atualizar" uma release > git fetch origin  (nome da branch) 
+
 para "apontar para um repositório remoto no github" > git add remote origin (url do repositório )
 
 para visualizar para qual repositorio está sendo apontado > git remote -v
@@ -25,6 +27,7 @@ para alterar a branch utilizada > git checkout (nome da branch)
 
 para saber qual branch esta sendo utilizada atualmente > git branch
 
+<<<<<<< HEAD
 para realizar merge > git merge (nome da branch)
 
 para montar estrutura de branchs com git flow > git flow init 
@@ -34,5 +37,26 @@ o mesmo serve para criar release,hotfix...
 
 para finalizar uma feature > git flow feature finish (nome da feature)
 
+=======
+para realizar merge > git merge (nome da branch) 
+
+para criar uma tag > git tag -a v1.4 -m 'my version 1.4'
+(Criando uma tag anotada em Git é simples. O jeito mais fácil é especificar -a quando você executar o comando /
+O parâmetro -m define uma mensagem, que é armazenada com a tag. Se você não especificar uma mensagem para uma tag anotada, o Git vai rodar seu editor de texto para você digitar alguma coisa)
+
+
+----------------------Git-Flow----------------------
+
+para iniciar git flow no diretorio > git flow init
+atribuir os nomes das features,releases,bugfix,hotfix...
+
+para criar uma feature > git flow feature start (nome da feature)
+
+para finalizar a feature e realizar o merge para develop > git flow feature finish (nome da branch)
+
+para criar uma release > git flow release start (nome da release)
+
+para finalizar a release e realizar o merge para develop/master > git flow release finish (nome da release)
+>>>>>>> finalizadas/Linux
 
  
