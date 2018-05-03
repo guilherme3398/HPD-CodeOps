@@ -1,0 +1,90 @@
+me = "/home/devops/aula_python/frutas.txt
+  File "<input>", line 1
+    filename = "/home/devops/aula_python/frutas.txt
+                                                  ^
+SyntaxError: EOL while scanning string literal
+>>> filename = "/home/devops/aula_python/frutas.txt"
+>>> file = open(filename, "r")
+>>> print(file)
+<_io.TextIOWrapper name='/home/devops/aula_python/frutas.txt' mode='r' encoding='UTF-8'>
+>>> file.close()
+>>> print(file)
+<_io.TextIOWrapper name='/home/devops/aula_python/frutas.txt' mode='r' encoding='UTF-8'>
+>>> with open(filename, 'r') as file:
+...     dados = file.read()
+...     print(dados)
+...     
+... 
+abacaxi
+tomate
+morango
+manga
+limao
+
+
+
+
+
+
+
+>>> filename = /"caminho do arquivo" 
+>>> 
+>>> 
+>>> 
+>>> with open(filename, 'w') as file:
+...     file.write("giropops frutas girus")
+...     
+... 
+21
+>>> with open(filename, 'r') as file 
+  File "<input>", line 1
+    with open(filename, 'r') as file
+                                    ^
+SyntaxError: invalid syntax
+>>> with open(filename, 'r') as file:
+...     dados = file.read()
+...     print(dados)
+...     
+... 
+giropops frutas girus
+>>> 
+>>> 
+>>> filename = "/home/devops/aula_python/frutas.txt"
+>>> with open (filename,'a') as file:
+...     file.write("giropops frutas girus again")
+
+
+
+-------------------procurando containers com palavras-------------------------
+
+import docker
+>>> 
+>>> 
+>>> client = docker.from_env()
+>>> 
+>>> 
+>>> client.container.list()
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+    client.container.list()
+  File "/home/devops/aula_python/venv/lib/python3.5/site-packages/docker/client.py", line 200, in __getattr__
+    raise AttributeError(' '.join(s))
+AttributeError: 'DockerClient' object has no attribute 'container'
+>>> todos = client.containers.list()
+>>> todos
+[<Container: 716bb26584>, <Container: 0e4cd116ce>]
+>>> 
+>>> container = client.containers.get('716bb26584')
+>>> 
+>>> container.attrs['Config'] ['Image']
+'nginx'
+>>> palavra_procurar = "nginx"
+>>> palavra_procurar
+'nginx'
+>>> nome_da_imagem = container.attrs['Config']['Image']
+>>> if str(palavra_procurar) in str(nome_da_imagem):
+...     print("A imagem %s do container %s tem a %s em seu nome" % (nome_da_imagem, container.short_id, palavra_procurar)) 
+...     
+... 
+A imagem nginx do container 716bb26584 tem a nginx em seu nome
+
