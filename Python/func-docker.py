@@ -27,35 +27,63 @@ def criar_container(args):
  
 def listar(args):
     """Listando os containers e suas respectivas imagens"""
-    client = docker.from_env()
-    get_all = client.containers.list()
-    for cada_container in get_all:
-        conectando = client.containers.get(cada_container.id)
-        print("O container %s utiliza a imagem %s e esta rodando o comando %s" % (conectando.short_id, conectando.attrs['Config']['Image'], conectando.attrs['Config']['Cmd']))
- 
+    try:
+        client = docker.from_env()
+        get_all = client.containers.list()
+        for cada_container in get_all:
+            conectando = client.containers.get(cada_container.id)
+            print("O container %s utiliza a imagem %s e esta rodando o comando %s" % (conectando.short_id, conectando.attrs['Config']['Image'], conectando.attrs['Config']['Cmd']))
+    
+    except docker.errors.NotFound as e:
+        logando('Erro: Esse comando não existe!', e)
+    finally:
+        print ("Comando executado!!") 
+
 def procurar_container(args):
-    client = docker.from_env()
-    get_all = client.containers.list()
-    for cada_container in get_all:
-        conectando = client.containers.get(cada_container.id)
-        imagem_container = conectando.attrs['Config']['Image']
-        if str(args.imagem).lower() in str(imagem_container).lower():
-            print("Achei o container %s que contem a palavra %s no nome de sua imagem: %s" % (cada_container.short_id, args.imagem, imagem_container))
+    """Procura o Container desejado"""
+    try:
+        client = docker.from_env()
+        get_all = client.containers.list()
+        for cada_container in get_all:
+            conectando = client.containers.get(cada_container.id)
+            imagem_container = conectando.attrs['Config']['Image']
+            if str(args.imagem).lower() in str(imagem_container).lower():
+                print("Achei o container %s que contem a palavra %s no nome de sua imagem: %s" % (cada_container.short_id, args.imagem, imagem_container))
+    except docker.errors.ImageNotFound as e:
+        logando('Erro: Essa imagem não existe!', e)
+    except docker.errors.NotFound as e:
+        logando('Erro: Esse comando não existe!', e)
+    except Exception as e:
+        logando('Erro! Favor verificar o comando digitado', e)
+    finally:
+        print('Comando executado!')
 
 def remover(args):
-    client = docker.from_env()
-    get_all = client.containers.list()
-    for cada_container in get_all:
-        conectando = client.containers.get(cada_container.id)
-        porta = cada_container.attrs['HostConfig']['PortBindings']
-        if isinstance(porta, dict):
-           
-          print ('Container %s foi removido' % (cada_container.id))
-      
-        else :
-          print ('Nenhum Container foi removido') 
- 
-parser = argparse.ArgumentParser(description="Meu CLI docker fodao feito durante a aula do HPD.")
+    """Remove os Containers que estao ocupando as portas no host"""
+    try:
+        client = docker.from_env()
+        get_all = client.containers.list()
+        for cada_container in get_all:
+            conectando = client.containers.get(cada_container.id)
+            porta = cada_container.attrs['HostConfig']['PortBindings']
+            if isinstance(porta, dict):
+                cada_container.stop() 
+                print('Container %s foi removido' % (cada_container.short_id))
+                 
+            else :
+                print ('Nenhum Container foi removido') 
+                
+    except docker.errors.ImageNotFound as e:
+        logando('Erro: Essa imagem não existe!', e)
+    except docker.errors.NotFound as e:
+        logando('Erro: Esse comando não existe!', e)
+    except Exception as e:
+        logando('Erro! Favor verificar o comando digitado', e)
+    finally:
+        print('Comando executado!!')
+
+
+parser = argparse.ArgumentParser(description="Meu CLI docker feito durante a aula do HPD.")
 subparser = parser.add_subparsers()
  
 criar_opt = subparser.add_parser('criar')
